@@ -1,0 +1,20 @@
+Source: ds4drv
+Section: python
+Priority: optional
+Maintainer: Enrico Weigelt, metux IT consult <info@metux.net>
+Build-Depends: debhelper (>= 9),
+               python-all-dev,
+               python-setuptools,
+               python3-all-dev,
+               python3-setuptools,
+Standards-Version: 3.9.4
+X-Python-Version: >= 2.7
+X-Python3-Version: >= 3.2
+Homepage: https://pypi.python.org/pypi/ds4drv/
+
+Package: ds4drv
+Architecture: linux-any
+Depends: ${shlibs:Depends},
+         ${misc:Depends},
+         ${python:Depends},
+Description: PS4 controller userland driver
