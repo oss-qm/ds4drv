@@ -27,9 +27,9 @@ override_dh_auto_build: $(PYTHON2:%=build-python%)
 override_dh_auto_install: $(PYTHON2:%=install-python%)
 #override_dh_auto_install:
 	dh_auto_install
-	echo "=== listing files"
+#	echo "=== listing files"
 #	cp -R $(CURDIR)/debian/ds4drv $(CURDIR)/debian/tmp
-	find $(CURDIR)/debian
+#	find $(CURDIR)/debian
 
 override_dh_auto_clean:
 	dh_auto_clean
