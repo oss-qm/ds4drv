@@ -8,31 +8,25 @@ PYTHON2=$(shell pyversions -vr)
 PYTHON3=$(shell py3versions -vr)
 
 %:
-	echo "===> rule: $@"
 #	dh $@ --with python2,python3
 	dh $@ --with python2
 
 build-python%:
-	echo "===> rule: $@"
 	python$* setup.py build
 
 install-python%:
-	echo "===> rule: $@"
 	python$* setup.py install \
 		 --install-layout=deb \
 		 --root=$(CURDIR)/debian/tmp \
 		 --force
 
 override_dh_auto_build: $(PYTHON3:%=build-python%)
-	echo "===> rule: $@"
 	dh_auto_build
 
 override_dh_auto_install: $(PYTHON3:%=install-python%)
-	echo "===> rule: $@"
 	dh_auto_install
 
 override_dh_auto_clean:
-	echo "===> rule: $@"
 	dh_auto_clean
 	-rm -rf build
 	-rm -rf *.egg-info
