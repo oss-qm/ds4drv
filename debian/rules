@@ -4,7 +4,11 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
+PYTHON2=$(shell pyversions -vr)
+PYTHON3=$(shell py3versions -vr)
+
 %:
+#	dh $@ --with python2,python3
 	dh $@ --with python2
 
 build-python%:
@@ -16,10 +20,10 @@ install-python%:
 		 --root=$(CURDIR)/debian/tmp \
 		 --force
 
-override_dh_auto_build:
+override_dh_auto_build: $(PYTHON3:%=build-python%)
 	dh_auto_build
 
-override_dh_auto_install:
+override_dh_auto_install: $(PYTHON3:%=install-python%)
 	dh_auto_install
 
 override_dh_auto_clean:
