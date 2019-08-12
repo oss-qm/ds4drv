@@ -28,6 +28,7 @@ override_dh_auto_build:
 override_dh_auto_install:
 	dh_auto_install
 	echo "=== listing files"
+	cp -R $(CURDIR)/debian/ds4drv $(CURDIR)/debian/tmp
 	find $(CURDIR)/debian
 
 override_dh_auto_clean:
