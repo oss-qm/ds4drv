@@ -9,7 +9,8 @@ PYTHON3=$(shell py3versions -vr)
 
 %:
 	echo "===> rule: $@"
-	dh $@ --with python2,python3
+#	dh $@ --with python2,python3
+	dh $@ --with python2
 
 build-python%:
 	echo "===> rule: $@"
