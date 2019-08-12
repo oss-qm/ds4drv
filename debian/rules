@@ -20,10 +20,12 @@ install-python%:
 		 --root=$(CURDIR)/debian/tmp \
 		 --force
 
-override_dh_auto_build: $(PYTHON3:%=build-python%)
+#override_dh_auto_build: $(PYTHON3:%=build-python%)
+override_dh_auto_build:
 	dh_auto_build
 
-override_dh_auto_install: $(PYTHON3:%=install-python%)
+#override_dh_auto_install: $(PYTHON3:%=install-python%)
+override_dh_auto_install:
 	dh_auto_install
 
 override_dh_auto_clean:
