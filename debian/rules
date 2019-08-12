@@ -25,3 +25,4 @@ override_dh_auto_install:
 	set -ex; for python in $(PYTHON3_VERSIONS); do \
             $$python setup.py install --root=$(CURDIR)/debian/$(DEB_SOURCE) --install-layout=deb; \
         done
+	cp -R $(CURDIR)/debian/ds4drv $(CURDIR)/debian/tmp
